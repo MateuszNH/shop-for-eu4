@@ -9,6 +9,14 @@ public class User {
         this.passwd = passwd;
     }
 
+    public String getMail() {
+        return mail;
+    }
+
+    public String getPasswd() {
+        return passwd;
+    }
+
     @Override
     public String toString() {
         return "User{" +

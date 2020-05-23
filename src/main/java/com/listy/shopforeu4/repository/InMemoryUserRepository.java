@@ -11,6 +11,15 @@ public class InMemoryUserRepository implements UserRepository{
     @Override
     public void save(User user) {
         users.add(user);
-        System.out.println(users);
+    }
+
+    @Override
+    public User findByMail(String mail) {
+        for (User user : users) {
+            if (mail.equals(user.getMail())) {
+                return user;
+            }
+        }
+        return null;
     }
 }
