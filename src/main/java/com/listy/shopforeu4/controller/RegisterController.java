@@ -29,6 +29,6 @@ public class RegisterController {
             model.addAttribute("error",e.getMessage());
             return "register-failed";
         }
-        return "register-success";
+        return "redirect:/login";
     }
 }

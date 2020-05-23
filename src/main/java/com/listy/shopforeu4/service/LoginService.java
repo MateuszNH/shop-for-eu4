@@ -8,7 +8,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoginService {
 
-    UserRepository repository;
+    private UserRepository repository;
+    private boolean logged;
 
     public LoginService(UserRepository repository) {
         this.repository = repository;
@@ -22,6 +23,13 @@ public class LoginService {
      if(!user.getPasswd().equals(formUser.getPasswd())){
         throw new LoginServiceException("hasło jest nieprawidłowe");
      }
+     logged = true;
     }
 
+    public boolean isLogged() {
+        return logged;
+    }
+    public void logout(){
+        logged = false;
+    }
 }

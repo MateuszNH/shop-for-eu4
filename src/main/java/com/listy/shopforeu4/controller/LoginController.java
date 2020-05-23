@@ -30,6 +30,6 @@ public class LoginController {
             model.addAttribute("error",e.getMessage());
             return "login-failed";
         }
-        return "login-success";
+        return "redirect:/";
     }
 }
