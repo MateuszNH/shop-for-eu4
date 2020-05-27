@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Rejestracja</title>
 </head>
 <body>
-<form action="/register" method="post"> <!-- wysłanie formularza przekierowuje na endpoint register -->
-    Podaj Email : <input type = "email" name="mail"> <br>
-    Podaj Hasło : <input type="password" name="passwd"> <br>
+<form action="/register" method="post" th:object="${loginForm}"> <!-- wysłanie formularza przekierowuje na endpoint register -->
+    Ponad nazwę drużyny: <input type="text" th:field="*{teamName}"> <br>
+    Podaj login lidera: <input type="text" th:field="*{leaderLogin}"> <br>
+    Podaj hasło lidera : <input type="password" th:field="*{leaderPassword}"> <br>
+    Podaj login współuczestnika : <input type="text" th:field="*{playerLogin}"> <br>
+    Podaj hasło współuczestnika : <input type="password" th:field="*{playerPassword}"> <br>
     <input type=submit >
 
 

@@ -1,6 +1,6 @@
 package com.listy.shopforeu4.controller;
 
-import com.listy.shopforeu4.dto.UserDTO;
+import com.listy.shopforeu4.dto.FormDTO;
 import com.listy.shopforeu4.service.RegisterService;
 import com.listy.shopforeu4.service.RegisterServiceException;
 import org.springframework.stereotype.Controller;
@@ -17,14 +17,15 @@ public class RegisterController {
     }
 
     @GetMapping("/register")
-    public String register(){
+    public String register(Model model){
+        FormDTO loginForm = new FormDTO();;
+        model.addAttribute("loginForm",loginForm);
         return "register-form";
     }
     @PostMapping("/register")
-    public String addNewUser(String mail, String passwd, Model model){
-        UserDTO user = new UserDTO(mail,passwd);
+    public String addNewTeam(FormDTO loginForm, Model model){
         try {
-            registerService.addNewUser(user);
+            registerService.addTeam(loginForm);
         }catch (RegisterServiceException e){
             model.addAttribute("error",e.getMessage());
             return "register-failed";

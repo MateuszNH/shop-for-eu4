@@ -1,27 +1,16 @@
 package com.listy.shopforeu4.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data //lombok uzupełnia standardowe metody
+@NoArgsConstructor // konstruktor ze wszystkimi argumentam // i
+@AllArgsConstructor
 public class User {
-    private String mail;
-    private String passwd;
+    private String login;
+    private String password;
+    private boolean leader;
+    //
 
-    public User(String mail, String passwd) {
-        this.mail = mail;
-        this.passwd = passwd;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public String getPasswd() {
-        return passwd;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "mail='" + mail + '\'' +
-                ", passwd='" + passwd + '\'' +
-                '}';
-    }
 }
