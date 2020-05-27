@@ -9,9 +9,10 @@ import java.util.List;
 public class InMemoryUserRepository implements UserRepository{
     private List<User> users = new ArrayList<>();
     @Override
-    public void save(User user) {
+    public User save(User user) {
         users.add(user);
         System.out.println(users);
+        return user;
     }
 
     @Override
